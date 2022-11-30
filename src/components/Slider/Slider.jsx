@@ -1,94 +1,64 @@
-import React, { useState } from "react";
-import styled, { keyframes } from "styled-components";
+import { React, useState, useEffect } from "react";
 import { BsArrowRightShort, BsArrowLeftShort } from "react-icons/bs";
-
-import first from "../../assets/Images/first.jpeg";
-import second from "../../assets/Images/second.jpeg";
-import third from "../../assets/Images//third.jpeg";
-import forth from "../../assets/Images/forth.jpeg";
-
-const images = [first, second, third, forth];
-
-const forwardImageAnimation = keyframes`
-  0%{
-    right: -50%;
-  }
-  100%{
-    right: 0%;
-  }
-`;
+import { sliderData } from "./Slider-data";
+import "./Slider.scss";
 
 const Slider = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slideLength = sliderData.length;
 
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => prevIndex + 1);
+  const autoScroll = true;
+  let slideInterval;
+  let intervalTime = 6000;
+
+  const nextSlide = () => {
+    setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
   };
 
-  const preImage = () => {
-    setCurrentImageIndex((prevIndex) => prevIndex - 1);
+  const prevSlide = () => {
+    setCurrentSlide(currentSlide === 0 ? slideLength - 1 : currentSlide - 1);
   };
+
+  function auto() {
+    slideInterval = setInterval(nextSlide, intervalTime);
+  }
+
+  useEffect(() => {
+    setCurrentSlide(0);
+  }, []);
+
+  useEffect(() => {
+    if (autoScroll) {
+      auto();
+    }
+    return () => clearInterval(slideInterval);
+  }, [currentSlide]);
 
   return (
-    <Container>
-      {currentImageIndex !== 0 && (
-        <StyledArrowContainer onClick={preImage} leftPosition="10%">
-          <BsArrowLeftShort color="white" />
-        </StyledArrowContainer>
-      )}
+    <div className="slider">
+      <BsArrowLeftShort className="arrow prev" onClick={prevSlide} />
+      <BsArrowRightShort className="arrow next" onClick={nextSlide} />
 
-      <StyledImageContainer>
-        <StyledImage src={images[currentImageIndex]} />
-      </StyledImageContainer>
-
-      {currentImageIndex !== images.length - 1 && (
-        <StyledArrowContainer onClick={nextImage} leftPosition="90%">
-          <BsArrowRightShort color="white" />
-        </StyledArrowContainer>
-      )}
-    </Container>
+      {sliderData.map((slide, index) => {
+        return (
+          <div
+            className={index === currentSlide ? "slide current" : "slide"}
+            key={index}
+          >
+            {index === currentSlide && (
+              <>
+                <img src={slide.image} alt="Slide" />
+                <div className="content">
+                  <h2>{slide.heading}</h2>
+                  <p>{slide.desc}</p>
+                </div>
+              </>
+            )}
+          </div>
+        );
+      })}
+    </div>
   );
 };
 
 export default Slider;
-
-const Container = styled.div`
-  width: 100%;
-  height: 80vh;
-  border: 1px solid black;
-  margin: 10px auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-`;
-
-const StyledImageContainer = styled.div`
-  width: 80%;
-  height: 80%;
-  position: absolute;
-  right: 0;
-  animation: ${forwardImageAnimation} 2s ease;
-`;
-
-const StyledImage = styled.img`
-  width: 100%;
-  height: 100%;
-`;
-
-const StyledArrowContainer = styled.div`
-  font-size: 45px;
-  width: 50px;
-  height: 50px;
-  background: #d06aff;
-  background: -webkit-linear-gradient(317deg, #d06aff 0%, #7052ff 100%);
-  background: linear-gradient(317deg, #d06aff 0%, #7052ff 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  left: ${(props) => props.leftPosition};
-  position: absolute;
-  cursor: pointer;
-`;
