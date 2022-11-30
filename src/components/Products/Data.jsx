@@ -1,8 +1,8 @@
-import product1 from "/IpetFrontend/assets/Product1.jpg";
-import product2 from "/IpetFrontend/assets/Product2.jpg";
-import product3 from "/IpetFrontend/assets/Product1.jpg";
-import product4 from "/IpetFrontend/assets/Product2.jpg";
-import product5 from "/IpetFrontend/assets/Product1.jpg";
+import product1 from "./products/Product1.jpg";
+import product2 from "./products/Product2.jpg";
+import product3 from "./products/Product1.jpg";
+import product4 from "./products/Product2.jpg";
+import product5 from "./products/Product1.jpg";
 
 // eslint-disable-next-line import/prefer-default-export
 export const productData = [
