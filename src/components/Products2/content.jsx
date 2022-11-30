@@ -1,4 +1,5 @@
-import product1 from "../../assets/products/Product1.jpg";
+// import product1 from "../../assets/products/Product1.jpg";
+import product1 from "/..";
 import product2 from "../../assets/products/Product2.jpg";
 
 const productData = [
