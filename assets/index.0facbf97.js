@@ -209,7 +209,7 @@ Error generating stack: `+o.message+`
   align-items: center;
   padding: 1rem;
   text-align: center;
-`,gi="/vite-deploy-demo/assets/Product1.bb527a90.jpg",rc="/vite-deploy-demo/assets/Product2.739bc765.jpg",h1=[{img:gi,alt:"soap",name:"WashBar Natural Dog Soap Bar - Natural Dog Shampoo Bar and ..."},{img:rc,alt:"candy",name:"WashBar Natural Dog Soap Bar - Natural Dog Shampoo Bar and ..."},{img:gi,alt:"soap",name:"WashBar Natural Dog Soap Bar - Natural Dog Shampoo Bar and ..."},{img:rc,alt:"candy",name:"WashBar Natural Dog Soap Bar - Natural Dog Shampoo Bar and ..."},{img:gi,alt:"soap",name:"WashBar Natural Dog Soap Bar - Natural Dog Shampoo Bar and ..."}],m1=v0`
+`,gi="/ipetfrontend/assets/Product1.bb527a90.jpg",rc="/ipetfrontend/assets/Product2.739bc765.jpg",h1=[{img:gi,alt:"soap",name:"WashBar Natural Dog Soap Bar - Natural Dog Shampoo Bar and ..."},{img:rc,alt:"candy",name:"WashBar Natural Dog Soap Bar - Natural Dog Shampoo Bar and ..."},{img:gi,alt:"soap",name:"WashBar Natural Dog Soap Bar - Natural Dog Shampoo Bar and ..."},{img:rc,alt:"candy",name:"WashBar Natural Dog Soap Bar - Natural Dog Shampoo Bar and ..."},{img:gi,alt:"soap",name:"WashBar Natural Dog Soap Bar - Natural Dog Shampoo Bar and ..."}],m1=v0`
     *{
         margin: 0;
         padding: 0;
