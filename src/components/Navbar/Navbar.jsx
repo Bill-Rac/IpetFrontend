@@ -8,8 +8,13 @@ const Navbar = () => {
     <NavbarContainer>
       <NavbarWrap>
         <Logo>
-          {/* <img src="/src/assets/My project-1.png" width='130px' height='130px'/> */}
-          I-PET
+          <Link to="/">
+            <img
+              src="/src/assets/My project-1.png"
+              width="130px"
+              height="130px"
+            />
+          </Link>
         </Logo>
 
         <Search>
@@ -58,10 +63,23 @@ const Logo = styled.div`
   font-weight: 700;
   padding: 25px;
   margin-left: 2rem;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Search = styled.div`
+  width: 30%;
+  margin: 0 auto;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    width: 80%;
+    margin-left: 0;
+  }
 `;
 
 const SearchWrap = styled.div`
@@ -71,13 +89,12 @@ const SearchWrap = styled.div`
   box-sizing: border-box;
   background-color: #fefefe;
   border-radius: 5px;
-  margin-left: 11rem;
 `;
 
 const Input = styled.input`
   color: #000;
-  width: 20rem;
-  margin: 0.6em;
+  width: 90%;
+  margin: 0.6em 0.2em;
   text-align: center;
   border: transparent;
   font-size: 15px;
@@ -85,7 +102,7 @@ const Input = styled.input`
 
   &::placeholder {
     color: #d1d8de;
-    font-size: 15px;
+    font-size: 1rem;
   }
 `;
 
@@ -122,4 +139,20 @@ const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
   margin-right: 5rem;
+`;
+
+const SearchIcon = styled(BsSearch)`
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #d1d8de;
+`;
+
+const SearchContainer = styled.div`
+  position: relative;
+`;
+
+const SearchInput = styled(Input)`
+  padding-right: 2.8rem;
 `;

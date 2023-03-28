@@ -5,16 +5,18 @@ function Products({ heading, data }) {
   return (
     <ProductsContainer>
       <ProductsHeading>{heading}</ProductsHeading>
-      <ProductWrapper>
-        {data.map((product, index) => (
-          <ProductCard key={index}>
-            <ProductImg src={product.img} alt={product.alt} />
-            <ProductInfo>
-              <ProductTitle>{product.name}</ProductTitle>
-            </ProductInfo>
-          </ProductCard>
-        ))}
-      </ProductWrapper>
+      <ProductsWrapper>
+        <ProductWrapper>
+          {data.map((product, index) => (
+            <ProductCard key={index}>
+              <ProductImg src={product.img} alt={product.alt} />
+              <ProductInfo>
+                <ProductTitle>{product.name}</ProductTitle>
+              </ProductInfo>
+            </ProductCard>
+          ))}
+        </ProductWrapper>
+      </ProductsWrapper>
     </ProductsContainer>
   );
 }
@@ -22,18 +24,25 @@ function Products({ heading, data }) {
 export default Products;
 
 const ProductsContainer = styled.div`
-  width: 100vw;
-  min-height: 100vh;
-  padding: 2rem calc((100vw - 1620px) / 2);
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
   background: #fefefe;
   color: #15151d;
 `;
 
+const ProductsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const ProductWrapper = styled.div`
   display: flex;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   justify-content: center;
   margin: 0 auto;
+  max-width: 1620px;
 `;
 
 const ProductCard = styled.div`
@@ -45,12 +54,10 @@ const ProductCard = styled.div`
 
 const ProductImg = styled.img`
   height: 300px;
-  min-width: 300px;
-  max-width: 100%;
+  width: 100%;
   border-radius: 10%;
   border-bottom: 5px solid transparent;
   border-image: linear-gradient(90deg, #7052ff -1.01%, #d06aff 100%) 1;
-  /* box-shadow: -0.5px 1px 9.5px 2px #bababa; */
 `;
 
 const ProductsHeading = styled.h1`

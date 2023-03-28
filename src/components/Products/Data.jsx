@@ -8,6 +8,7 @@ import product5 from "./products/Product1.jpg";
 export const productData = [
   {
     img: product1,
+    text: "Descount 20%",
     alt: "soap",
     name: "WashBar Natural Dog Soap Bar - Natural Dog Shampoo Bar and ...",
   },
