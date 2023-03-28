@@ -8,6 +8,7 @@ import Products from "./components/Products/index";
 import { productData } from "./components/Products/Data";
 import { BrowserRouter as Router } from "react-router-dom";
 import GlobalStyle from "./globalStyle";
+import Footer from "./components/Footer/FooterElements";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Slider />
       <App />
       <Products heading="POPULAR DEALS" data={productData} />
+      <Footer />
     </Router>
   </React.StrictMode>
 );

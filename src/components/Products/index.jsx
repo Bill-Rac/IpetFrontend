@@ -2,6 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 function Products({ heading, data }) {
+  function handleAddToCart(product) {
+    console.log(`Producto "${product.name}" añadido al carrito`);
+  }
+
   return (
     <ProductsContainer>
       <ProductsHeading>{heading}</ProductsHeading>
@@ -12,6 +16,9 @@ function Products({ heading, data }) {
               <ProductImg src={product.img} alt={product.alt} />
               <ProductInfo>
                 <ProductTitle>{product.name}</ProductTitle>
+                <AddToCartButton onClick={() => handleAddToCart(product)}>
+                  Añadir al carrito
+                </AddToCartButton>
               </ProductInfo>
             </ProductCard>
           ))}
@@ -78,4 +85,14 @@ const ProductInfo = styled.div`
   align-items: center;
   padding: 1rem;
   text-align: center;
+`;
+
+const AddToCartButton = styled.button`
+  background-color: #7052ff;
+  color: #fefefe;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
 `;
