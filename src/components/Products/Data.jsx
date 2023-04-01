@@ -15,7 +15,7 @@ export const productData = [
   {
     img: product2,
     alt: "candy",
-    name: "WashBar Natural Dog Soap Bar - Natural Dog Shampoo Bar and ...",
+    name: "Hartz Delectables Squeeze Up golosinas interactivas ...",
   },
   {
     img: product3,
@@ -25,7 +25,7 @@ export const productData = [
   {
     img: product4,
     alt: "candy",
-    name: "WashBar Natural Dog Soap Bar - Natural Dog Shampoo Bar and ...",
+    name: "Hartz Delectables Squeeze Up golosinas interactivas ...",
   },
   {
     img: product5,

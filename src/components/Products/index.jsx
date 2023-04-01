@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 function Products({ heading, data }) {
   function handleAddToCart(product) {
@@ -13,12 +14,16 @@ function Products({ heading, data }) {
         <ProductWrapper>
           {data.map((product, index) => (
             <ProductCard key={index}>
-              <ProductImg src={product.img} alt={product.alt} />
+              <Link to={`/producto/${product.id}`}>
+                <ProductImg src={product.img} alt={product.alt} />
+              </Link>
               <ProductInfo>
                 <ProductTitle>{product.name}</ProductTitle>
-                <AddToCartButton onClick={() => handleAddToCart(product)}>
-                  Añadir al carrito
-                </AddToCartButton>
+                <AddToCartWrapper>
+                  <AddToCartButton onClick={() => handleAddToCart(product)}>
+                    Añadir al carrito
+                  </AddToCartButton>
+                </AddToCartWrapper>
               </ProductInfo>
             </ProductCard>
           ))}
@@ -76,6 +81,7 @@ const ProductsHeading = styled.h1`
 const ProductTitle = styled.h2`
   font-weight: 500;
   font-size: 1rem;
+  margin: 0;
 `;
 
 const ProductInfo = styled.div`
@@ -87,6 +93,12 @@ const ProductInfo = styled.div`
   text-align: center;
 `;
 
+const AddToCartWrapper = styled.div`
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+`;
+
 const AddToCartButton = styled.button`
   background-color: #7052ff;
   color: #fefefe;
@@ -94,5 +106,5 @@ const AddToCartButton = styled.button`
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
+  align-self: center;
 `;
